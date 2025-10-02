@@ -16,7 +16,7 @@ let currentCategory = "all";
 
 function renderMenu() {
   const menuList = document.getElementById("menu-list");
-  if (!menuList) return; // biar aman di index.html
+  if (!menuList) return; // biar nggak error di halaman selain menu
   menuList.innerHTML = "";
 
   const filtered = currentCategory === "all" ? menuItems : menuItems.filter(item => item.category === currentCategory);
@@ -77,7 +77,7 @@ function removeFromCart(id) {
 function updateCart() {
   const cartList = document.getElementById("cart-list");
   const cartTotal = document.getElementById("cart-total");
-  if (!cartList || !cartTotal) return; // biar aman di index.html
+  if (!cartList || !cartTotal) return; // biar aman di halaman selain menu
   cartList.innerHTML = "";
   let total = 0;
 
@@ -120,5 +120,5 @@ function checkout() {
   window.open(url, "_blank");
 }
 
-// render menu hanya di menu.html
+// render menu kalau ada element menu-list
 renderMenu();
